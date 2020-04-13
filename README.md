@@ -33,5 +33,5 @@ Each time the block come down and touches
 the bottom part with out touching the 
 rectangle the score set to zero
 
-----------------------------------------
+-----------------------------------------
 &&&&&&             *              &&&&&&&
