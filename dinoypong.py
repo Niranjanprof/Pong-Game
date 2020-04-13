@@ -35,7 +35,14 @@ ball_change_x = 5
 ball_change_y = 5
 
 score = 0
-
+def level():
+    if(50>FPS>35):
+        level = "Beginner Level"
+    elif(FPS<66):
+        level = "Intermediate Level"
+    else:
+        level = "Advanced Level"
+    return level
 
 def drawrect( screen , x , y):
     if x <= 0:
@@ -86,15 +93,8 @@ while not done:
     drawrect(screen, rect_x, rect_y)
 
     font = pygame.font.SysFont(('calibri'), 15, False, False)
-    if(50>FPS>35):
-        level = "Beginner Level"
-    elif(FPS<66):
-        level = "Intermediate Level"
-    else:
-        level = "Advanced Level"
-    text = font.render(level+": Score= " + str(score), True, white)
+    text = font.render(level()+": Score= " + str(score), True, white)
     screen.blit(text, [600, 100])
-
 
     pygame.display.flip()
     clock.tick(FPS)
