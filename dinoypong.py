@@ -1,5 +1,3 @@
-#part1
-
 import pygame
 
 black = (0, 0, 0)
@@ -8,37 +6,36 @@ red = (255, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 255)
 
+FPS = (input("\n\n______________________________________\n40 or below for  Beginners\n____________________________________________\n50 to 65 for  Intermediate\n__________________________________________\n70+ for Adavanced\n______________________________________________\nEnter your Speed value: -   "))
+if ('35'<FPS<'80'):
+    FPS = int(FPS)
+else:
+    FPS = int(60)
 pygame.init()
 
-#initialising display with window
 
 size = (800, 600)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Dinoy Ka Pong Game")
 
-#starting co-ordinates of rectangle
 
 rect_x = 400
 rect_y = 580
 
-#initial speed of paddles
 
 rect_change_x = 0
 rect_change_y = 0
 
-#initial psition of ball
 
 ball_x = 50
 ball_y = 50
 
-#speed of the ball
 
 ball_change_x = 5
 ball_change_y = 5
 
 score = 0
 
-#draw the paddle and restrict it between the edges of window
 
 def drawrect( screen , x , y):
     if x <= 0:
@@ -46,7 +43,6 @@ def drawrect( screen , x , y):
     if x >= 699:
         x = 699
     pygame.draw.rect(screen, red, [x, y, 100, 20])
-#main loop of main
 
 done = False
 clock = pygame.time.Clock()
@@ -70,7 +66,6 @@ while not done:
     ball_x += ball_change_x
     ball_y += ball_change_y
 
-#the movement of ball
     if ball_x < 0:
         ball_x = 0
         ball_change_x = ball_change_x * -1
@@ -88,17 +83,21 @@ while not done:
         score = 0
     pygame.draw.rect(screen, white, [ball_x, ball_y, 15, 15])
 
-#redraw the rectangle
     drawrect(screen, rect_x, rect_y)
 
-#score board
     font = pygame.font.SysFont(('calibri'), 15, False, False)
-    text = font.render("Score= " + str(score), True, white)
+    if(50>FPS>35):
+        level = "Beginner Level"
+    elif(FPS<66):
+        level = "Intermediate Level"
+    else:
+        level = "Advanced Level"
+    text = font.render(level+": Score= " + str(score), True, white)
     screen.blit(text, [600, 100])
 
 
     pygame.display.flip()
-    clock.tick(60)
+    clock.tick(FPS)
 
 
-pygame.quit() 
+pygame.quit()
