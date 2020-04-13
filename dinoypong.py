@@ -1,3 +1,56 @@
+#part1
+
+import pygame
+
+black = (0, 0, 0)
+white = (255, 255, 255)
+red = (255, 0, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
+
+pygame.init()
+
+#initialising display with window
+
+size = (800, 600)
+screen = pygame.display.set_mode(size)
+pygame.display.set_caption("Dinoy Ka Pong Game")
+
+#starting co-ordinates of rectangle
+
+rect_x = 400
+rect_y = 580
+
+#initial speed of paddles
+
+rect_change_x = 0
+rect_change_y = 0
+
+#initial psition of ball
+
+ball_x = 50
+ball_y = 50
+
+#speed of the ball
+
+ball_change_x = 5
+ball_change_y = 5
+
+score = 0
+
+#draw the paddle and restrict it between the edges of window
+
+def drawrect( screen , x , y):
+    if x <= 0:
+        x = 0
+    if x >= 699:
+        x = 699
+    pygame.draw.rect(screen, red, [x, y, 100, 20])
+#main loop of main
+
+done = False
+clock = pygame.time.Clock()
+while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
@@ -46,4 +99,6 @@
 
     pygame.display.flip()
     clock.tick(60)
-pygame.quit()
+
+
+pygame.quit() 
