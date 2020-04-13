@@ -4,7 +4,10 @@ It is a tabetennis sports game in simple two dimensional graphics
 
 $$$ created and developed by DINOY RAJ $$$
 
-=========================================#
+=========================================
+
+
+------------------------------------------
 How to play???
 use left and right arrows to play the game
 
